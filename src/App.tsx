@@ -5,12 +5,12 @@ import Home from "./pages/Home";
 import SavedRepos from "./pages/SavedRepos";
 
 const [username, setUsername] = createSignal("ronan-morais");
+const [repos, setRepos] = createSignal([]);
 
 const App: Component = () => {
   createEffect(async () => {
     const res = await fetch(`https://api.github.com/users/${username()}/repos`);
-    const data = await res.json();
-    console.log(data);
+    setRepos(await res.json());
   });
 
   return (
@@ -24,4 +24,5 @@ const App: Component = () => {
   );
 };
 
+export { username, setUsername, repos };
 export default App;
