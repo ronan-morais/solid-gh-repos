@@ -1,11 +1,17 @@
-import type { Component } from 'solid-js';
-import Nav from './components/Nav';
+import { Route, Routes } from "solid-app-router";
+import type { Component } from "solid-js";
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import SavedRepos from "./pages/SavedRepos";
 
 const App: Component = () => {
   return (
-    <div>
-      <Nav/>
-      <h1>App Component </h1>
+    <div class="container">
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/savedrepos" element={<SavedRepos />} />
+      </Routes>
     </div>
   );
 };
