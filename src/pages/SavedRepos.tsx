@@ -1,7 +1,7 @@
 import { Component, For, createSignal } from "solid-js";
 import RepoCard, { Repo } from "../components/RepoCard";
 
-const [savedRepos, setSavedRepos] = createSignal([]);
+const [savedRepos, setSavedRepos] = createSignal([] as Repo[]);
 
 const SavedRepos: Component = () => {
   return (
@@ -12,4 +12,5 @@ const SavedRepos: Component = () => {
   );
 };
 
+export { setSavedRepos, savedRepos };
 export default SavedRepos;
